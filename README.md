@@ -1,5 +1,7 @@
 # Muri (無理)
 
+[![CircleCI](https://circleci.com/gh/dtsukiyama/muri.svg?style=svg)](https://circleci.com/gh/dtsukiyama/muri)
+
 This repository contains the Chainer implementation of waifu2x: [[2]](https://github.com/nagadomi/waifu2x); ala Tsurumeso[[1]] https://github.com/tsurumeso/waifu2x-chainer
 
 Much of the credit should go to Tsurumeso and Nagadomi. However I just wanted to implement these models as a python module. I originally wanted to call this package 'Muda' (無駄), but amazingly there is a package called 'Muda.' Why call it Muda?
