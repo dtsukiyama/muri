@@ -154,6 +154,19 @@ gcloud compute instances create dt-training \
         --metadata='install-nvidia-driver=True,proxy-mode=project_editors'
 ```
 
+You can also launch an instance with the supplied script, supplying the name you want to give the instance:
+
+```
+./lanuch_gpu.sh instance_name
+```
+
+In my case, e.g.:
+
+```
+./launch_gpu.sh dt-training
+```
+
+
 After the instance is up you should get some details about it:
 
 ```
@@ -216,8 +229,32 @@ python gpu.py --input images_256 --output images_512
 Download images from the vm to your local machine (run command from local terminal):
 
 ```
-gcloud compute scp --project dt-pipeline --zone us-west1-b --recurse dt-training:/home/davidtsukiyama/muri/images_512 /path/to/folder/on/loca/machine/
+gcloud compute scp --project dt-pipeline --zone us-west1-b --recurse dt-training:/home/davidtsukiyama/muri/images_512 /path/to/folder/on/local/machine/
 ```
+
+# Advanced usage
+
+Theoretically you could initialize a model with different settings:
+
+```python
+from muda import Scale, Transform
+scaler = Scale()
+models = scaler.cpu()
+settings = scaler.config()
+```
+
+And then initialize the transformer:
+
+```python
+transformer = Transform(models, settings)
+```
+
+And finally call the method you want:
+
+```python
+transformer.scale('images/small.png', 'test/')
+```
+
 
 # Testing
 
@@ -226,6 +263,5 @@ Currently testing is set up for CPU use, not GPU use.
 # Deploy Flask API on Kubernetes (WIP)
 
 # References
-------
 - [1] tsurumeso, https://github.com/tsurumeso/waifu2x-chainer
 - [2] nagadomi, "Image Super-Resolution for Anime-Style Art", https://github.com/nagadomi/waifu2x
