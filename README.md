@@ -1,6 +1,6 @@
 # Muri (無理)
 
-This repository contains the Chainer implementation of waifu2x: [[2]](https://github.com/nagadomi/waifu2x); ala Tsurumeso https://github.com/tsurumeso/waifu2x-chainer
+This repository contains the Chainer implementation of waifu2x: [[2]](https://github.com/nagadomi/waifu2x); ala Tsurumeso[[1]] https://github.com/tsurumeso/waifu2x-chainer
 
 Much of the credit should go to Tsurumeso and Nagadomi. However I just wanted to implement these models as a python module. I originally wanted to call this package 'Muda' (無駄), but amazingly there is a package called 'Muda.' Why call it Muda?
 
@@ -91,8 +91,6 @@ Noise level 2:
 from kantan import Ni
 Ni.go('images','test')
 ```
-
-Get it?
 
 You can also do an easy default denoise and scale:
 
@@ -205,7 +203,7 @@ gcloud compute scp --project dt-pipeline --zone us-west1-b --recurse images_256 
 
 Scale all images:
 
-```python
+```
 python gpu.py --input images_256 --output images_512
 ```
 
@@ -214,3 +212,8 @@ Download images from the vm to your local machine (run command from local termin
 ```
 gcloud compute scp --project dt-pipeline --zone us-west1-b --recurse dt-training:/home/davidtsukiyama/muri/images_512 /path/to/folder/on/loca/machine/
 ```
+
+# References
+------
+- [1] tsurumeso, https://github.com/tsurumeso/waifu2x-chainer
+- [2] nagadomi, "Image Super-Resolution for Anime-Style Art", https://github.com/nagadomi/waifu2x
