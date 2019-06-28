@@ -4,7 +4,9 @@
 
 This repository contains the Chainer implementation of waifu2x: [[2]](https://github.com/nagadomi/waifu2x); ala Tsurumeso[[1]] https://github.com/tsurumeso/waifu2x-chainer
 
-Much of the credit should go to Tsurumeso and Nagadomi. However I just wanted to implement these models as a python module. I originally wanted to call this package 'Muda' (無駄), but amazingly there is a package called 'Muda.' Why call it Muda?
+Much of the credit should go to Tsurumeso and Nagadomi. However I just wanted to implement these models as a python module. I originally wanted to call this package 'Muda' (無駄), but amazingly there is a Python package called 'Muda.'
+
+Why would I want to call it Muda?
 
 ![](pngs/muda.png?raw=true)
 
@@ -150,7 +152,7 @@ gcloud compute instances create dt-training \
 You can also launch an instance with the supplied script, supplying the name you want to give the instance:
 
 ```
-./lanuch_gpu.sh instance_name
+./launch_gpu.sh instance_name
 ```
 
 In my case, e.g.:
