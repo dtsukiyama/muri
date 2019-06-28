@@ -226,6 +226,8 @@ Scale all images:
 python gpu.py --input images_256 --output images_512
 ```
 
+Running on a K80, scaling hundreds of images is relatively quick. However there is some warm up time 10-15 seconds before scaling begins.
+
 Download images from the vm to your local machine (run command from local terminal):
 
 ```
