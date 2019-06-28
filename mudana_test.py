@@ -1,9 +1,7 @@
 import os
 import pytest
 import shutil
-import click
-from click.testing import CliRunner
-from yare import cpu
+
 from muda import Scale, Noise, NoiseScale, Transform
 from kantan import Scaler, Ichi, Ni, San, Both
 

@@ -10,6 +10,7 @@ Actually I wanted to call it 'Muda' because of:
 
 ![](pngs/jojo.png?raw=true)
 
+Which is really silly. And ultimately had to settle for 'Muri,' which means impossible.
 
 This all started from reading Gwern's write up on [StyleGAN](https://www.gwern.net/Faces). And I was getting stuck on scaling up anime images.
 
@@ -39,11 +40,14 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-Or you can install with pip:
+Install Muri with pip:
 
 ```
-pip install muri
+cd muri
+pip install .
 ```
+
+I am working on making this a package.
 
 # Quick Start
 
@@ -212,6 +216,12 @@ Download images from the vm to your local machine (run command from local termin
 ```
 gcloud compute scp --project dt-pipeline --zone us-west1-b --recurse dt-training:/home/davidtsukiyama/muri/images_512 /path/to/folder/on/loca/machine/
 ```
+
+# Testing
+
+Currently testing is set up for CPU use, not GPU use.
+
+# Deploy Flask API on Kubernetes (WIP)
 
 # References
 ------
