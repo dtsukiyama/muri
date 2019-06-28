@@ -1,7 +1,7 @@
 import argparse
 import kantan
 
-parser = argparse.ArgumentParser(description='無駄な事')
+parser = argparse.ArgumentParser(description='Scale images with CPU')
 parser.add_argument('--input', '-i', default='images/small.png')
 parser.add_argument('--output', '-o', default='./')
 parser.add_argument('--gpu', '-g', type=int, default=-1)

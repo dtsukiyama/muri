@@ -28,7 +28,7 @@ In some respects this project is not really a big deal and perhaps a waste of ti
 You can clone this repo:
 
 ```
-git clone git@github.com:dtsukiyama/muri.git
+git clone https://github.com/dtsukiyama/muri.git
 ```
 
 Create a virtual environment or use Anaconda:
@@ -169,14 +169,48 @@ You can ssh into the instance, don't forget the zone:
 gcloud compute ssh dt-training --zone=us-west1-b
 ```
 
+
 If you need to stop the instance:
 
 ```
 gcloud compute instances stop dt-training
 ```
 
+To start a stopped instance:
+
+```
+gcloud compute instances start dt-training
+```
+
 And finally if you need to delete the instance:
 
 ```
 gcloud compute instances delete dt-training
+```
+
+## Uploading Images
+
+Install Muri:
+
+```
+git clone git clone https://github.com/dtsukiyama/muri.git
+pip install .
+```
+
+I have a folder with over 500 256x256 pixel images, I can run the following from a local terminal to upload the images to my wm:
+
+```
+gcloud compute scp --project dt-pipeline --zone us-west1-b --recurse images_256 dt-training:/home/davidtsukiyama/muri
+```
+
+Scale all images:
+
+```python
+python gpu.py --input images_256 --output images_512
+```
+
+Download images from the vm to your local machine (run command from local terminal):
+
+```
+gcloud compute scp --project dt-pipeline --zone us-west1-b --recurse dt-training:/home/davidtsukiyama/muri/images_512 /path/to/folder/on/loca/machine/
 ```
