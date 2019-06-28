@@ -42,14 +42,7 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-Install Muri with pip:
-
-```
-cd muri
-pip install .
-```
-
-I am working on making this a package.
+I am working on making this a pip package.
 
 # Quick Start
 
@@ -211,7 +204,6 @@ Install Muri:
 
 ```
 git clone git clone https://github.com/dtsukiyama/muri.git
-pip install .
 ```
 
 I have a folder with over 500 256x256 pixel images, I can run the following from a local terminal to upload the images to my wm:
