@@ -1,9 +1,9 @@
-from muda import Scale, Noise, NoiseScale, Transform
+from .muda import Scale, Noise, NoiseScale, Transform
 
 class Scaler(object):
     """I Just want to initiate default models"""
     scaler = Scale()
-    scale_models = scaler.cpu()
+    scale_models = scaler.gpu(n_gpu=0)
     scale_settings = scaler.config()
     sm = Transform(scale_models, scale_settings)
 
@@ -13,7 +13,7 @@ class Scaler(object):
 
 class Ichi(object):
     noisy  = Noise()
-    noise_models = noisy.cpu()
+    noise_models = noisy.gpu(n_gpu=0)
     noise_settings = noisy.config()
     nm = Transform(noise_models, noise_settings)
 
@@ -23,7 +23,7 @@ class Ichi(object):
 
 class Ni(object):
     noisy  = Noise(noise_level = 2)
-    noise_models = noisy.cpu()
+    noise_models = noisy.gpu(n_gpu=0)
     noise_settings = noisy.config()
     nm = Transform(noise_models, noise_settings)
 
@@ -33,7 +33,7 @@ class Ni(object):
 
 class San(object):
     noisy  = Noise(noise_level = 3)
-    noise_models = noisy.cpu()
+    noise_models = noisy.gpu(n_gpu=0)
     noise_settings = noisy.config()
     nm = Transform(noise_models, noise_settings)
 
@@ -43,7 +43,7 @@ class San(object):
 
 class Both(object):
     noise_scale = NoiseScale()
-    ns_models = noise_scale.cpu()
+    ns_models = noise_scale.gpu(n_gpu=0)
     ns_settings = noise_scale.config()
     ns = Transform(ns_models, ns_settings)
 

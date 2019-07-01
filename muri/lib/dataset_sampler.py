@@ -5,8 +5,8 @@ from tempfile import NamedTemporaryFile
 import numpy as np
 import six
 
-from lib import iproc
-from lib.pairwise_transform import pairwise_transform
+from muri.lib import iproc
+from muri.lib.pairwise_transform import pairwise_transform
 
 
 class DatasetSampler(object):

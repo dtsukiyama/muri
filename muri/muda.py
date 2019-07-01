@@ -8,10 +8,10 @@ import numpy as np
 from PIL import Image
 import six
 
-from lib import iproc
-from lib import reconstruct
-from lib import srcnn
-from lib import utils
+from muri.lib import iproc
+from muri.lib import reconstruct
+from muri.lib import srcnn
+from muri.lib import utils
 
 class Namespace:
     def __init__(self, **kwargs):
@@ -53,7 +53,7 @@ class Scale(object):
 
         Validate.model(model)
         Validate.color(color)
-        self.model_directory = 'models/{}'.format(model.lower())
+        self.model_directory = 'muri/models/{}'.format(model.lower())
         self.models = {}
         self.channel = 3 if color == 'rgb' else 1
         self.color = color
@@ -115,7 +115,7 @@ class Noise(object):
         Validate.model(model)
         Validate.color(color)
         Validate.noise(noise_level)
-        self.model_directory = 'models/{}'.format(model.lower())
+        self.model_directory = 'muri/models/{}'.format(model.lower())
         self.models = {}
         self.channel = 3 if color == 'rgb' else 1
         self.color = color
@@ -185,7 +185,7 @@ class NoiseScale(object):
         Validate.ns_model(model)
         Validate.color(color)
         Validate.noise(noise_level)
-        self.model_directory = 'models/{}'.format(model.lower())
+        self.model_directory = 'muri/models/{}'.format(model.lower())
         self.models = {}
         self.channel = 3 if color == 'rgb' else 1
         self.color = color

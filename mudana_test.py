@@ -2,8 +2,8 @@ import os
 import pytest
 import shutil
 
-from muda import Scale, Noise, NoiseScale, Transform
-from kantan import Scaler, Ichi, Ni, San, Both
+from muri.muda import Scale, Noise, NoiseScale, Transform
+from muri.kantan import Scaler, Ichi, Ni, San, Both
 
 
 def default_settings_model():

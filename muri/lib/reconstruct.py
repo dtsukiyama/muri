@@ -6,7 +6,7 @@ import numpy as np
 from PIL import Image
 import six
 
-from lib import iproc
+from muri.lib import iproc
 
 
 def _get_padding_size(size, block_size, offset):

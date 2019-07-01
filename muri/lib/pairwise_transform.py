@@ -4,8 +4,8 @@ import random
 import numpy as np
 from PIL import Image
 
-from lib import data_augmentation
-from lib import iproc
+from muri.lib import data_augmentation
+from muri.lib import iproc
 
 
 def _noise(src, p, level):

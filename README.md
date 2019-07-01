@@ -2,27 +2,16 @@
 
 [![CircleCI](https://circleci.com/gh/dtsukiyama/muri.svg?style=svg)](https://circleci.com/gh/dtsukiyama/muri)
 
-This repository contains the Chainer implementation of waifu2x: [[2]](https://github.com/nagadomi/waifu2x); ala Tsurumeso[[1]] https://github.com/tsurumeso/waifu2x-chainer
+This package is based on the Muri repository which contains the Chainer implementation of waifu2x: [[2]](https://github.com/nagadomi/waifu2x); ala Tsurumeso[[1]] https://github.com/tsurumeso/waifu2x-chainer
 
-Much of the credit should go to Tsurumeso and Nagadomi. However I just wanted to implement these models as a python module. I originally wanted to call this package 'Muda' (無駄), but amazingly there is a Python package called 'Muda.'
-
-Why would I want to call it Muda?
-
-![](pngs/muda.png?raw=true)
-
-Actually I wanted to call it 'Muda' because of:
-
-![](pngs/jojo.png?raw=true)
-
-Which is really silly. And ultimately had to settle for 'Muri,' which means impossible.
+Much of the credit should go to Tsurumeso and Nagadomi. However I just wanted to implement these models as a python module. I originally wanted to call this package 'Muda' (無駄), which means useless of a waste of time in Japanese. Amazingly there is a package called 'Muda.' I ultimately settled for 'Muri,' which means impossible.
 
 This all started from reading Gwern's write up on [StyleGAN](https://www.gwern.net/Faces). And I was getting stuck on scaling up anime images.
 
-And Really this was more of a project to keep me occupied after suddenly being laid off from my data scientist job; this kept me from pacing back and forth in my apartment between interviews and the prospect of losing my insurance. So uhhh... yeah I am looking for work. If you are a company that:
+This was more of a project to keep me occupied (i.e. 'muda,' a waster of time) after suddenly being laid off from my data scientist job. However working on this this kept me from pacing back and forth in my apartment between interviews and thinking about the prospect of my family losing their insurance. So uhhh... yeah I am looking for work. If you are a company that:
 
-1. Doesn't suddenly lay off their workers
-2. Values people from different backgrounds and people with kids (i.e. flexible)
-3. Have a data scientist opening
+1. Values people from different backgrounds and people with kids (i.e. flexible)
+2. Have a data scientist opening
 
 Here's my [LinkedIn](https://www.linkedin.com/in/david-tsukiyama-a4716b81/)
 
@@ -30,7 +19,13 @@ In some respects this project is not really a big deal and perhaps a waste of ti
 
 # Installation
 
-You can clone this repo:
+You can run just run:
+
+```
+pip install muri
+```
+
+If you want to install from the repository source:
 
 ```
 git clone https://github.com/dtsukiyama/muri.git
@@ -44,59 +39,45 @@ source env/bin/activate
 pip install -r requirements.txt
 ```
 
-I am working on making this a pip package.
+Install Muri with pip:
+
+```
+cd muri
+pip install .
+```
 
 # Quick Start
 
 If you just want to scale your images there are two simple ways to go about doing so:
 
-1. Command line
 
-Using cpu:
-
-```
-python cpu.py --input path/to/images --output path/to/scaled/images
-```
-
-For example I have a bunch of images in the 'images' directory and I want to scale them and place them into the test directory:
-
-```
-python cpu.py --input images --output test
-```
-
-If you wanted to scale a single image in the 'images' directory:
-
-```
-python cpu.py --input images/sample.png --output test
-```
-
-2. Import as a module
+1. Import as a module
 
 The easiest way to do this is:
 
 ```python
-from kantan import Scaler
+from muri.kantan import Scaler
 Scaler.go('images','test')
 ```
 
 You can also denoise at certain levels. For example noise level 1:
 
 ```python
-from kantan import Ichi
+from muri.kantan import Ichi
 Ichi.go('images', 'test')
 ```
 
 Noise level 2:
 
 ```python
-from kantan import Ni
+from muri.kantan import Ni
 Ni.go('images','test')
 ```
 
 You can also do an easy default denoise and scale:
 
 ```python
-from kantan import Both
+from muri.kantan import Both
 Both.go('images','test')
 ```
 
@@ -113,6 +94,26 @@ Please be aware that Mac OS X is not an officially supported OS.
 ```
 
 However I was able to scale images just fine on a Macbook Air. But think twice if you are looking to do hundreds of thousands of images, I am pretty sure (I hope) I will have a job before you finish doing that.
+
+1. Command line (source)
+
+Using cpu:
+
+```
+python muri/cpu.py --input path/to/images --output path/to/scaled/images
+```
+
+For example I have a bunch of images in the 'images' directory and I want to scale them and place them into the test directory:
+
+```
+python muri/cpu.py --input images --output test
+```
+
+If you wanted to scale a single image in the 'images' directory:
+
+```
+python muri/cpu.py --input images/sample.png --output test
+```
 
 ## Using a GPU
 
@@ -152,7 +153,7 @@ gcloud compute instances create dt-training \
 You can also launch an instance with the supplied script, supplying the name you want to give the instance:
 
 ```
-./launch_gpu.sh instance_name
+./lanuch_gpu.sh instance_name
 ```
 
 In my case, e.g.:
@@ -206,6 +207,7 @@ Install Muri:
 
 ```
 git clone git clone https://github.com/dtsukiyama/muri.git
+pip install .
 ```
 
 I have a folder with over 500 256x256 pixel images, I can run the following from a local terminal to upload the images to my wm:
@@ -217,10 +219,8 @@ gcloud compute scp --project dt-pipeline --zone us-west1-b --recurse images_256 
 Scale all images:
 
 ```
-python gpu.py --input images_256 --output images_512
+python muri/gpu.py --input images_256 --output images_512
 ```
-
-Running on a K80, scaling hundreds of images is relatively quick. However there is some warm up time 10-15 seconds before scaling begins.
 
 Download images from the vm to your local machine (run command from local terminal):
 
@@ -233,7 +233,7 @@ gcloud compute scp --project dt-pipeline --zone us-west1-b --recurse dt-training
 Theoretically you could initialize a model with different settings:
 
 ```python
-from muda import Scale, Transform
+from muri.muda import Scale, Transform
 scaler = Scale()
 models = scaler.cpu()
 settings = scaler.config()

@@ -5,7 +5,7 @@ import numpy as np
 from PIL import Image
 from PIL import ImageFilter
 
-from lib import iproc
+from muri.lib import iproc
 
 
 def unsharp_mask(src, p):

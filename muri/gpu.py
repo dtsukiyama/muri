@@ -1,15 +1,15 @@
 import argparse
-import kantan
+from muri.maji import Scaler
 
-parser = argparse.ArgumentParser(description='Scale images with CPU')
+parser = argparse.ArgumentParser(description='Scale images with GPU')
 parser.add_argument('--input', '-i', default='images/small.png')
 parser.add_argument('--output', '-o', default='./')
-parser.add_argument('--gpu', '-g', type=int, default=-1)
+parser.add_argument('--gpu', '-g', type=int, default=0)
 
 arguments = parser.parse_args()
 print(arguments.gpu)
 
 def go(arguments):
-    kantan.Scaler.go(arguments.input, arguments.output)
+    Scaler.go(arguments.input, arguments.output)
 
 go(arguments)
