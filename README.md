@@ -4,7 +4,7 @@
 
 This package is based on the Muri repository which contains the Chainer implementation of waifu2x: [[2]](https://github.com/nagadomi/waifu2x); ala Tsurumeso[[1]] https://github.com/tsurumeso/waifu2x-chainer
 
-Much of the credit should go to Tsurumeso and Nagadomi. However I just wanted to implement these models as a python module. I originally wanted to call this package 'Muda' (無駄), which means useless of a waste of time in Japanese. Amazingly there is a package called 'Muda.' I ultimately settled for 'Muri,' which means impossible.
+Much of the credit should go to Tsurumeso and Nagadomi. However I just wanted to implement these models as a python module. I originally wanted to call this package 'Muda' (無駄), which means useless or a waste of time in Japanese. Amazingly there is a package called 'Muda.' I ultimately settled for 'Muri,' which means impossible.
 
 This all started from reading Gwern's write up on [StyleGAN](https://www.gwern.net/Faces). And I was getting stuck on scaling up anime images.
 
@@ -93,7 +93,7 @@ https://docs.chainer.org/en/stable/tips.html#mnist-example-does-not-converge-in-
 Please be aware that Mac OS X is not an officially supported OS.
 ```
 
-However I was able to scale images just fine on a Macbook Air. But think twice if you are looking to do hundreds of thousands of images, I am pretty sure (I hope) I will have a job before you finish doing that.
+However I was able to scale images just fine on a Macbook Air. But think twice if you are looking to do hundreds of thousands or images, I am pretty sure (I hope) I will have a job before you finish doing that.
 
 1. Command line (source)
 
