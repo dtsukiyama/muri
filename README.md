@@ -19,13 +19,8 @@ In some respects this project is not really a big deal and perhaps a waste of ti
 
 # Installation
 
-You can run just run:
 
-```
-pip install muri
-```
-
-If you want to install from the repository source:
+To install from the repository source:
 
 ```
 git clone https://github.com/dtsukiyama/muri.git
