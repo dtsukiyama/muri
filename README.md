@@ -8,14 +8,10 @@ Much of the credit should go to Tsurumeso and Nagadomi. However I just wanted to
 
 This all started from reading Gwern's write up on [StyleGAN](https://www.gwern.net/Faces). And I was getting stuck on scaling up anime images.
 
-This was more of a project to keep me occupied (i.e. 'muda,' a waster of time) after suddenly being laid off from my data scientist job. However working on this this kept me from pacing back and forth in my apartment between interviews and thinking about the prospect of my family losing their insurance. So uhhh... yeah I am looking for work. If you are a company that:
-
-1. Values people from different backgrounds and people with kids (i.e. flexible)
-2. Have a data scientist opening
+This was more of a project to keep me occupied (i.e. 'muda,' a waster of time).
 
 Here's my [LinkedIn](https://www.linkedin.com/in/david-tsukiyama-a4716b81/)
 
-In some respects this project is not really a big deal and perhaps a waste of time, but it helped me keep me focused after losing my job; therefore not really 'Muda.'
 
 # Installation
 
